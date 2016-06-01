@@ -1,0 +1,24 @@
+<launch>
+  <arg name="run_driver" default="true" />
+
+  <arg name="namespace" default="bebop" />
+  <arg name="ip" default="192.168.42.1" />
+  <arg name="config_file" default="$(find bebop_driver)/config/defaults.yaml" />
+  <arg name="camera_info_url" default="package://bebop_driver/data/bebop_camera_calib.yaml" />
+
+  <group ns="$(arg namespace)">
+    <node name="bebop_keyboard_teleop"
+          pkg="roseus" type="roseus"
+          args="$(find bebop_tutorials)/euslisp/bebop_keyboard_teleop.l"
+          respawn="true" />
+  </group>
+
+  <include file="$(find bebop_driver)/launch/bebop_node.launch"
+           if="$(arg run_driver)">
+    <arg name="namespace" value="$(arg namespace)" />
+    <arg name="ip" value="$(arg ip)" />
+    <arg name="config_file" value="$(arg config_file)" />
+    <arg name="camera_info_url" value="$(arg camera_info_url)" />
+  </include>
+
+</launch>

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package>
+  <name>bebop_tutorials</name>
+  <version>0.0.0</version>
+  <description>The bebop_tutorials package</description>
+  <maintainer email="furushchev@todo.todo">furushchev</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>bebop_driver</build_depend>
+  <build_depend>roseus</build_depend>
+  <run_depend>bebop_driver</run_depend>
+  <run_depend>roseus</run_depend>
+
+  <export>
+  </export>
+</package>
